@@ -34,16 +34,37 @@ angular.module('myApp', ['ngTouch', 'bolzaListSelector']);
 ```
 
 Use the directive by specifying a `list-selector` attribute on an element.
-
-	<list-selector class="horizontal" start-index="{{selectedIndex}}" list="myListArray" selection-change="change(item)" >
-	 {{item}}
-	</list-selector>
-
+```html
+<list-selector start-index="0" list="myListArray" selection-change="changeme(item)" >
+	<li class="template_for_element"><div>{{item}}</div></li>
+</list-selector>
+```
 
 ## Usage
 
+Inside the `list-selector` tag you can put any template fragment, it will be repeated for each loop object and represented by the `item` variable inside the loop. You can always refer to `item` inside `list-selector`.
+
 ###list
-`list`="[]" : must be an array containing primitives or objects, think of what you would pass to ngRepeat (because, you know, this IS actually an ngRepeat).
+	@param {Array} list=[]
+`list` must be an array containing primitives or objects, think of what you would pass to ngRepeat (because, you know, this IS actually an ngRepeat).
 
+###start-index
+	@param {Int} [startIndex=-1]
+Defines the starting index, of course starts from 0. 
+-1 means nothing is selected.
 
+###selection-change
+	@param {Function} [selectionChange]
+If you pass a callback function to `selection-change` it will be called every time the list selection is changed, even the first time if `start-index` is defined. `item` is passed to the `selectionChange` callback.
 
+###orientation
+	@param {String} [orientation='horizontal' || 'vertical']
+You can choose between `horizontal` and `vertical` layout for your list.
+
+###arrows-step
+	@param {Int} [arrowStep=2]
+The directive automatically adds `back` and `forward` arrow to scroll the list if can't be contained in the current view. This property sets the number of elements beeing scrolled when clicking on an arrow.
+
+###name
+	@param {String} [name]
+Name is actually only for application specific purposes, can be retrieved by the scope of the directive and from the events it fires.
