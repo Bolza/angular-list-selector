@@ -58,13 +58,35 @@ Defines the starting index, of course starts from 0.
 If you pass a callback function to `selection-change` it will be called every time the list selection is changed, even the first time if `start-index` is defined. `item` is passed to the `selectionChange` callback.
 
 ###orientation
-	@param {String} [orientation='horizontal' || 'vertical']
+	@param {'horizontal'|'vertical'} [orientation='horizontal']
 You can choose between `horizontal` and `vertical` layout for your list.
 
 ###arrows-step
 	@param {Int} [arrowStep=2]
-The directive automatically adds `back` and `forward` arrow to scroll the list if can't be contained in the current view. This property sets the number of elements beeing scrolled when clicking on an arrow.
+The directive automatically adds `back` and `forward` arrows to scroll the list if can't be contained in the current view. This property sets the number of elements beeing scrolled when clicking on an arrow.
 
 ###name
 	@param {String} [name]
 Name is actually only for application specific purposes, can be retrieved by the scope of the directive and from the events it fires.
+
+## Events
+
+###listSelectorChange
+	@eventType emit
+	@param {Scope} selectorScope
+	@param {DOMElement} selectorRoot
+	@param {Object} selectedItem
+	@param {DOMElement} selectedElement
+
+
+Fired each time the selection on the list changes, also fires at startup if `start-index` is set.
+
+
+####Example
+
+```javascript
+$rootScope.$on('listSelectorChange', function(ev, data) {
+	$scope.myDatas = MyResource.get(data.selectedItem);  
+	selectDom(data.selectedElement);
+});
+```
