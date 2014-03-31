@@ -35,12 +35,15 @@ angular.module('myApp', ['ngTouch', 'bolzaListSelector']);
 
 Use the directive by specifying a `list-selector` attribute on an element.
 
-```html
-	<list-selector class="horizontal" start-index="{{selectedIndex}}" list="alphabet" selection-change="change(item)" >
+	<list-selector class="horizontal" start-index="{{selectedIndex}}" list="myListArray" selection-change="change(item)" >
 	 {{item}}
 	</list-selector>
-```
 
-## Documentation
 
- 
+## Usage
+
+###list
+`list`="[]" : must be an array containing primitives or objects, think of what you would pass to ngRepeat (because, you know, this IS actually an ngRepeat).
+
+
+
