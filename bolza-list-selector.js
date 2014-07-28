@@ -1,5 +1,5 @@
 'use strict';
-angular.module('bolza.list-selector', []).
+angular.module('bolza.listSelector', [])
 .directive('bolzaListSelector', function ($swipe) {
 	var list = [];
 	var currentIndex = -1;

@@ -1,11 +1,11 @@
 {
   "name": "angular-list-selector",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "authors": [
     "Bolza <stefano.sergio@gmail.com>"
   ],
   "description": "List Component for AngularJS, notyfies the selection and handles scrolling and slide, fully configurable and stylizable",
-  "main": "listSelector.js",
+  "main": "bolza-list-selector.js",
   "keywords": [
     "list",
     "selection",

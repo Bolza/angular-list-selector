@@ -56,6 +56,7 @@ Defines the starting index, of course starts from 0.
 ###selection-change
 	@param {Function} [selectionChange]
 If you pass a callback function to `selection-change` it will be called every time the list selection is changed, even the first time if `start-index` is defined. `item` is passed to the `selectionChange` callback.
+<<<<<<< Updated upstream
 
 ###orientation
 	@param {'horizontal'|'vertical'} [orientation='horizontal']
@@ -90,3 +91,4 @@ $rootScope.$on('listSelectorChange', function(ev, data) {
 	selectDom(data.selectedElement);
 });
 ```
+
