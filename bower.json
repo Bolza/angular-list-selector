@@ -1,6 +1,6 @@
 {
   "name": "angular-list-selector",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "authors": [
     "Bolza <stefano.sergio@gmail.com>"
   ],
@@ -9,7 +9,8 @@
   "keywords": [
     "list",
     "selection",
-    "slide"
+    "slide",
+    "swipe"
   ],
   "license": "MIT",
   "ignore": [

@@ -1,0 +1,50 @@
+list-selector.horizontal {
+    position: relative;
+    display: block;
+    width: 100%; 
+    overflow: hidden;
+    height: 38px;
+}
+list-selector .lcenterbox {
+    position: relative;
+    height: 200px;
+    width: 78%;
+    float: left;
+    overflow: hidden;
+}
+list-selector .lwrapper {
+    display: block;
+    position: absolute;
+    height: 100%;
+}
+list-selector .lselector-item {
+    padding-top: 5px;
+    float: left;
+    overflow: hidden;
+}
+list-selector .lselector-item .h-item {
+    width: 100%;
+    height: 100%;
+}
+list-selector .forward, list-selector .back {
+    position: relative;
+    width: 10%;
+    height: 100%;
+    font-size: 22px;
+    float:left;
+    padding-top: 4px;
+}
+list-selector .lwrapper > *.selected {
+    color: #2EA6E6;
+    border-bottom: 4px solid #2EA6E6;
+}
+list-selector .icon.back:before {
+    content: "\e601";
+}
+list-selector .icon.forward:before {
+    content: "\e602";
+}
+list-selector .disabled {
+    color: #ccc;
+}
+
