@@ -1,6 +1,6 @@
 {
   "name": "angular-list-selector",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "authors": [
     "Bolza <stefano.sergio@gmail.com>"
   ],
@@ -22,7 +22,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.0.6",
-    "angular-touch": "~1.2.15"
+    "angular": "1.2.16",
+    "angular-touch": "1.2.16"
   }
 }
