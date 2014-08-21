@@ -10,7 +10,7 @@ angular.module('bolza.listSelector', [])
 	var backDisabled = false, forwardDisabled = false;
 	var childData = {}, 
 		movedata = {start:0, end:0, current:0};
-		
+
 	function selectByIndex(index) {
 		if (index < 0 || index > list.length-1) return;
 		if (currentElement && index != currentIndex) currentElement.classList.remove('selected');
@@ -56,9 +56,8 @@ angular.module('bolza.listSelector', [])
 			itemWidth: '@',
 			itemHeight: '@'
 		},
-		template: '<div class="icon forward" ng-click="stepForward()"></div>' +'<div class="icon back" ng-click="stepBack()"></div>' +'<div class="lcenterbox"><div class="lwrapper"><list-selector-item class="lselector-item" ng-click="changeSelection(this)" ng-repeat="item in list" ng-transclude></list-selector-item></div></div>',
+		template: '<div class="icon forward" ng-click="stepForward()"></div>' +'<div class="icon back" ng-click="stepBack()"></div>' +'<div class="lcenterbox"><div class="lwrapper" style="-ms-touch-action: none;"><list-selector-item class="lselector-item" ng-click="changeSelection(this)" ng-repeat="item in list" ng-transclude></list-selector-item></div></div>',
 		compile: function(element, attrs) {
-
 			container = element[0].querySelector('.lwrapper');
 			box = element[0].querySelector('.lcenterbox');
 			arrowBack = element[0].querySelector('.back');
@@ -76,16 +75,6 @@ angular.module('bolza.listSelector', [])
 				end: function(pos) {
 					movedata.end = movedata.current;
 					movedata.endTime = Date.now();
-					/*
-					var delta = Math.abs(movedata.end - movedata.start); //px
-					var elapsed = movedata.endTime - movedata.startTime; //ms
-					var velocity = delta / elapsed; // px/ms
-
-					for (var i = 0; i < 50; i++) {
-						movedata.end = movedata.current = scrollToPosition(movedata.current + velocity);
-					}
-					console.log(delta,elapsed,velocity, movedata); 
-					*/
 				} 
 			} );
 		},
@@ -105,7 +94,7 @@ angular.module('bolza.listSelector', [])
 				var prefixes = ['WebKit', 'Moz', 'O', 'Ms', ''];
 				for(var i=0; i < prefixes.length; i++) {
 					if(prefixes[i] + 'MutationObserver' in window) {
-					return window[prefixes[i] + 'MutationObserver'];
+						return window[prefixes[i] + 'MutationObserver'];
 					}
 				}
 				return false;
@@ -121,7 +110,6 @@ angular.module('bolza.listSelector', [])
 			}
 			else {
 				var observer = new MutationObserver(function(mutations) {
-					//console.log('MutationObserver',mutations, $scope); 
 					for (var i = 0, mute; mute = mutations[i]; i++) {
 						var child = angular.element(mute.addedNodes[0]);
 						resize(child);
@@ -130,16 +118,15 @@ angular.module('bolza.listSelector', [])
 				var config = { attributes: false, childList: true, characterData: false };
 				observer.observe(container, config);	
 			}
-
+			
 			var resize = function(elem) {
 				if ($scope.startIndex && $scope.startIndex == $scope.$index) selectByIndex(parseInt($scope.startIndex));
-				childData.width = parseInt($scope.itemWidth) || elem.width();
-				childData.height = parseInt($scope.itemHeight) || elem.height();
-				mainWidth += childData.width;
+				childData.width = elem.width() || parseInt($scope.itemWidth);
+				childData.height = elem.height() || parseInt($scope.itemHeight);
+				mainWidth += childData.width; 
 				mainHeight += childData.height;
 				if (orientation == 'horizontal') container.style.width = mainWidth+'px';
 				if (orientation == 'vertical') container.style.height = mainHeight+'px';
-				//console.log(childData, mainWidth);
 			}
 		
 			$scope.changeSelection = function(item) {
@@ -165,6 +152,7 @@ angular.module('bolza.listSelector', [])
 .directive('listSelectorItem', function () {
 	return {
 		restrict: 'AE',
+		//transclude: true,
 		scope: {},
 		link: function(scope, elem) {
 			scope.height = elem[0].offsetHeight;
