@@ -152,8 +152,6 @@ angular.module('bolza.listSelector', [])
 .directive('listSelectorItem', function () {
 	return {
 		restrict: 'AE',
-		//transclude: true,
-		scope: {},
 		link: function(scope, elem) {
 			scope.height = elem[0].offsetHeight;
 			scope.width = elem[0].offsetWidth;
