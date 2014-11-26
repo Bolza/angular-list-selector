@@ -3,6 +3,9 @@ angular-list-selector
 
 List Component for AngularJS, notyfies the selection and handles scrolling and slide, fully configurable and stylizable
 
+*Repository and files are called angular-list-selector for an easier search on the internet/bower/github.
+The module anyway is called 'bolzaListSelector' to avoid future conflict with angular official modules.*
+
 ## Version Numbers
 
 bolzaListSelector follows [semantic versioning](http://semver.org/) and uses the following versioning scheme:
@@ -18,18 +21,19 @@ bolzaListSelector follows [semantic versioning](http://semver.org/) and uses the
 Install with `bower`:
 
 ```shell
-bower install angular-list-selector
+bower install angular-list-selector --save
 ```
 
-Add a `<script>` to your `index.html`:
+Add a `<script>` to your `index.html`.
+Anyway it should be already there if you `grunt serve` the project.
 
 ```html
-<script src="bower_components/angular-list-selector/bolza-list-selector.js"></script>
+<script src="bower_components/angular-list-selector/angular-list-selector.js"></script>
 ```
 And the standard css (recommended), that you will eventually edit later
 
 ```html
-<link rel="stylesheet" href="bower_components/angular-list-selector/bolza-list-selector.css" />
+<link rel="stylesheet" href="bower_components/angular-list-selector/angular-list-selector.css" />
 ```
 
 Add `bolzaListSelector` as a dependency for your app:
